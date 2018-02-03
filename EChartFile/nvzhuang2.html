@@ -1,0 +1,111 @@
+
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="nvzhuang2" style="height: 500px"></div>
+<!-- ECharts单文件引入 -->
+<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+
+<script type="text/javascript">
+	// 路径配置
+	require.config({
+		paths : {
+			echarts : 'http://echarts.baidu.com/build/dist'
+		}
+	});
+
+	// 使用
+	require([ 'echarts', 'echarts/chart/pie' // 使用柱状图就加载bar模块，按需加载
+	], function(ec) {
+		// 基于准备好的dom，初始化echarts图表
+		var myChart = ec.init(document.getElementById('nvzhuang2'));
+
+		var option = {
+			title : {
+				text : '女装销售比例',
+
+			},
+			tooltip : {
+				trigger : 'item',
+				formatter : "{a} <br/>{b} : {c} ({d}%)"
+			},
+
+			toolbox : {
+				show : true,
+				feature : {
+					restore : {
+						show : true
+					},
+					saveAsImage : {
+						show : true
+					}
+				}
+			},
+			calculable : true,
+			series : [ {
+				name : '女装销售比例',
+				type : 'pie',
+				radius : '55%',
+				center : [ '50%', '60%' ],
+				data : [ {
+					value : 17876922,
+					name : '裤子女装'
+				}, {
+					value : 8715402,
+					name : '打底衫女'
+				}, {
+					value : 6290753,
+					name : '毛衣女'
+				}, {
+					value : 5841158,
+					name : '针织衫女'
+				}, {
+					value : 3196945,
+					name : '棉服女'
+				}, {
+					value : 2939183,
+					name : '羽绒服女'
+				}, {
+					value : 2577558,
+					name : '卫衣女装'
+				}, {
+					value : 2408077,
+					name : 'T恤女装'
+				}, {
+					value : 1863748,
+					name : '妈妈装'
+				}, {
+					value : 1431816.0,
+					name : '半身裙'
+				}, {
+					value : 1106528.0,
+					name : '毛呢外套女'
+				}, {
+					value : 1044920.0,
+					name : '衬衫女装'
+				}, {
+					value : 912888.0,
+					name : '连衣裙'
+				}, {
+					value : 280154.0,
+					name : '夹克女'
+				}, {
+					value : 184813.0,
+					name : '风衣女装'
+				}, {
+					value : 179334.0,
+					name : '皮衣女'
+				}, {
+					value : 143646.0,
+					name : '婚纱礼服'
+				}, {
+					value : 137403.0,
+					name : '西装女'
+				}
+
+				]
+			} ]
+		};
+
+		// 为echarts对象加载数据 
+		myChart.setOption(option);
+	});
+</script>

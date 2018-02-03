@@ -1,0 +1,126 @@
+
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="lingshi-bar" style="height: 600px"></div>
+<!-- ECharts单文件引入 -->
+<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+
+<script type="text/javascript">
+	// 路径配置
+	require.config({
+		paths : {
+			echarts : 'http://echarts.baidu.com/build/dist'
+		}
+	});
+
+	// 使用
+	require([ 'echarts', 'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+	], function(ec) {
+		// 基于准备好的dom，初始化echarts图表
+		var myChart = ec.init(document.getElementById('lingshi-bar'));
+
+		var option = {
+
+			title : {
+				text : '零食月销售量',
+			},
+			tooltip : {
+				trigger : 'axis',
+				axisPointer : { // 坐标轴指示器，坐标轴触发有效
+					type : 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+				}
+			},
+			legend : {
+				data : [ '2017年12月零食销量', '平均价格' ]
+			},
+			toolbox : {
+				show : true,
+				feature : {
+					//mark : {show: true},
+					//dataView : {show: true, readOnly: true},
+					//magicType: {show: true, type: ['line', 'bar']},
+					restore : {
+						show : true
+					},
+					saveAsImage : {
+						show : true
+					}
+				}
+			},
+			//calculable : true,
+			xAxis : [ {
+				type : 'value',
+				boundaryGap : [ 0, 0.01 ]
+			} ],
+			yAxis : [ {
+				type : 'category',
+				data : [ '饼干', '巧克力', '辣条', '牛肉干', '鸭肉', '夏威夷果', '碧根果', '芒果干',
+						'巴旦木', '开心果', '葡萄干', '棒棒糖', '牛奶糖', '薄荷糖', '果冻', '话梅糖',
+						'甜甜圈', '蓝莓干', '椰蓉球', '泡泡糖'
+
+				].reverse()
+			} ],
+
+			axisLabel : [ {
+				show : true
+			} ],
+			series : [
+					{
+						name : '2017年12月零食销量',
+						type : 'bar',
+						data : [ 7864698.0, 4368916.0, 3260309.0, 2424924.0,
+								2385978.0, 2290653.0, 1589494.0, 1520751.0,
+								1347743.0, 1293426.0, 1259383.0, 917969.0,
+								820685.0, 549718.0, 538237.0, 353385.0,
+								231681.0, 177681.0, 83488.0, 24702.0
+
+						].reverse(),
+						itemStyle : {
+							normal : { //柱状图颜色
+								color : '#b6a2df',//#2ec7c9',
+								label : {
+									show : true, //显示文本
+									position : 'right', //数据值位置
+									textStyle : {
+										color : '#0000FF',
+										fontSize : '20',
+
+									}
+								}
+							}
+						}
+
+					},
+					{
+						name : '平均价格',
+						type : 'bar',
+						data : [ 27.93, 45.04, 18.55, 49.16, 38.66, 48.82,
+								46.83, 32.17, 38.24, 54.97, 26.95, 31.47,
+								26.72, 34.90, 26.79, 26.47, 56.67, 161.87,
+								33.80, 409.11
+
+						].reverse(),
+						itemStyle : {
+							normal : { //柱状图颜色
+								color : '#87cefa',//#2ec7c9',
+								label : {
+									show : true, //显示文本
+									position : 'right', //数据值位置
+									textStyle : {
+										color : '#0000FF',
+										fontSize : '20',
+
+									}
+								}
+							}
+						}
+
+					}
+
+			]
+
+		};
+
+		// 为echarts对象加载数据 
+		myChart.setOption(option);
+	});
+</script>

@@ -1,0 +1,173 @@
+
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="height:700px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+
+    <script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+        
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('main')); 
+                
+                var option = {
+                		
+                	    title : {
+                	        text: '女装月销售量',
+                	    },
+                	    tooltip : {
+                	        trigger: 'axis',
+                	        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                	            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                	        }
+                	    },
+                	    legend: {
+                	        data:['2017年12月销量','平均价格']
+                	    },
+                	    toolbox: {
+                	        show : true,
+                	        feature : {
+                	            //mark : {show: true},
+                	            //dataView : {show: true, readOnly: true},
+                	            //magicType: {show: true, type: ['line', 'bar']},
+                	            restore : {show: true},
+                	            saveAsImage : {show: true}
+                	        }
+                	    },
+                	    //calculable : true,
+                	    xAxis : [
+                	        {
+                	            type : 'value',
+                	            boundaryGap : [0, 0.01]
+                	        }
+                	    ],
+                	    yAxis : [
+                	        {
+                	            type : 'category',
+                	            data : [  	'裤子女',
+                	                      	'打底衫女',
+                	                      	 '毛衣女', 
+                	                      	'针织衫女',
+                	                      	 '棉服女', 
+                	                      	'羽绒服女',
+                	                      	'卫衣女装',
+                	                      	'T恤女装', 
+                	                      	 '妈妈装', 
+                	                      	 '半身裙', 
+                	                      	'毛呢外套女',
+                	                      	'衬衫女装',
+                	                      	 '连衣裙',
+                	                      	 '夹克女', 
+                	                      	'风衣女装',
+                	                      	 '皮衣女', 
+                	                      	'婚纱礼服',
+                	                      	 '西装女'                	                      
+										].reverse()
+                	        }				
+                	    ],
+                	    
+                	    axisLabel:[
+              	               {show:true}
+            	               ],
+                	    series : [
+                	        {
+                	            name:'2017年12月销量',
+                	            type:'bar',
+                	            data:[17876922,
+                	                  8715402.0,
+                	                  6290753.0, 
+                	                   5841158.0,
+                	                  3196945.0, 
+                	                   2939183.0,
+                	                   2577558.0,
+                	                  2408077.0, 
+                	                  1863748.0, 
+                	                  1431816.0, 
+                	                  1106528.0,
+                	                   1044920.0,
+                	                   912888.0, 
+                	                   280154.0, 
+                	                    184813.0,
+                	                   179334.0, 
+                	                    143646.0,
+                	                   137403.0 
+               	                  
+								].reverse(),
+								itemStyle:{
+				                    normal:{    //柱状图颜色
+				                        color:'#b6a2df',//#2ec7c9',
+				                        label:{
+				                            show: true,   //显示文本
+				                            position: 'right',  //数据值位置
+				                            textStyle:{
+				                                color:'#0000FF',
+				                                fontSize:'20',
+				                                
+				                            }
+				                        }
+				                    }
+				                }
+                	        
+                	        },
+                	        {
+                	            name:'平均价格',
+                	            type:'bar',
+                	            data:[63.66, 
+                	                  70.79, 
+                	                  93.32, 
+                	                  96.70, 
+                	                  184.65,
+                	                  385.8,
+                	                  77.80,
+                	                  60.12,
+                	                  184.95, 
+                	                  103.11,
+                	                  368.93,
+                	                  104.84,
+                	                  188.32,
+                	                  239.14,
+                	                  315.47,
+                	                  857.67,
+                	                  463.88,
+                	                  393.21               	                  
+               	                  
+								].reverse(),
+								itemStyle:{
+				                    normal:{    //柱状图颜色
+				                        color:'#2ec7c9',//#2ec7c9',
+				                        label:{
+				                            show: true,   //显示文本
+				                            position: 'right',  //数据值位置
+				                            textStyle:{
+				                                color:'#8ae32e',
+				                                fontSize:'20',
+				                                
+				                            }
+				                        }
+				                    }
+				                }
+                	        
+                	        }
+                	        
+                	    ]
+
+                	};
+                	                    
+                	                           
+                // 为echarts对象加载数据 
+                myChart.setOption(option); 
+            }
+        );
+    </script>

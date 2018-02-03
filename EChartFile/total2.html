@@ -1,0 +1,98 @@
+
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="total2" style="height: 700px"></div>
+<!-- ECharts单文件引入 -->
+<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+
+<script type="text/javascript">
+	// 路径配置
+	require.config({
+		paths : {
+			echarts : 'http://echarts.baidu.com/build/dist'
+		}
+	});
+
+	// 使用
+	require([ 'echarts', 'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+	], function(ec) {
+		// 基于准备好的dom，初始化echarts图表
+		var myChart = ec.init(document.getElementById('total2'));
+
+		var option = {
+
+			title : {
+				text : '总月销售量 图2',
+			},
+			tooltip : {
+				trigger : 'axis',
+				axisPointer : { // 坐标轴指示器，坐标轴触发有效
+					type : 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+				}
+			},
+			legend : {
+				data : [ '2017年12月' ]
+			},
+			toolbox : {
+				show : true,
+				feature : {
+					//mark : {show: true},
+					//dataView : {show: true, readOnly: true},
+					//magicType: {show: true, type: ['line', 'bar']},
+					restore : {
+						show : true
+					},
+					saveAsImage : {
+						show : true
+					}
+				}
+			},
+			//calculable : true,
+			xAxis : [ {
+				type : 'value',
+				boundaryGap : [ 0, 0.01 ]
+			} ],
+			yAxis : [ {
+				type : 'category',
+				data : [ '小米', '洁面', '儿童裤子', '棉袜女', '牛肉', '内裤女', '长袖睡衣', '围巾',
+						'内裤男', '巧克力', '运动裤男装', '面膜', '乳液', '柠檬', '帽子', '童鞋',
+						'卫衣男装', '雪地靴', '洗发水', 'oppo', 'T恤男装', '卫生巾', '牛奶',
+						'男士睡衣', '绘本' ].reverse()
+			} ],
+
+			axisLabel : [ {
+				show : true
+			} ],
+			series : [ {
+				name : '2017年12月',
+				type : 'bar',
+				data : [ 4746490.0, 4727331.0, 4694670.0, 4651058.0, 4630011.0,
+						4612125.0, 4508023.0, 4426260.0, 4417667.0, 4368916.0,
+						4332190.0, 4282905.0, 4207855.0, 4167727.0, 4166215.0,
+						3931569.0, 3862480.0, 3851849.0, 3812539.0, 3725865.0,
+						3696852.0, 3568475.0, 3537466.0, 3532434.0, 3492248.0 ]
+						.reverse(),
+				itemStyle : {
+					normal : { //柱状图颜色
+						color : '#b6a2df',//#2ec7c9',
+						label : {
+							show : true, //显示文本
+							position : 'insideRight', //数据值位置
+							textStyle : {
+								color : '#0000FF',
+								fontSize : '20',
+
+							}
+						}
+					}
+				}
+
+			}
+
+			]
+
+		};
+
+		// 为echarts对象加载数据 
+		myChart.setOption(option);
+	});
+</script>

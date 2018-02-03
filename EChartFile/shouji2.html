@@ -1,0 +1,71 @@
+
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="phone-pie" style="height:500px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+
+    <script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+        
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/pie' // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('phone-pie')); 
+                
+                var option = {
+                	    title : {
+                	        text: '手机销量比例',
+                	        
+                	       
+                	    },
+                	    tooltip : {
+                	        trigger: 'item',
+                	        formatter: "{a} <br/>{b} : {c} ({d}%)"
+                	    },
+                
+                	    toolbox: {
+                	        show : true,
+                	        feature : {        	           
+                	            restore : {show: true},
+                	            saveAsImage : {show: true}
+                	        }
+                	    },
+                	    calculable : true,
+                	    series : [
+                	        {
+                	            name:'手机销量',
+                	            type:'pie',
+                	            radius : '55%',
+                	            center: ['50%', '60%'],
+                	            data:[
+									{value:7321395.0, name:'iphone'},
+									{value:4746490.0, name:'小米'},
+									{value:3725865.0,  name:'oppo'},
+									{value:455962.0, name:'荣耀'},                	                
+									{value:350468.0,  name:'华为'},
+									{value:144537.0, name:'魅族'},
+									{value:133113.0, name:'vivo'},
+                	                {value:112196.0,  name:'三星'}             	               
+                	                              	      
+                	              ]         
+                	        }
+                	    ]
+                	};
+                	                    
+                	                    
+                	                           
+                // 为echarts对象加载数据 
+                myChart.setOption(option); 
+            }
+        );
+    </script>
