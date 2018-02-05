@@ -60,6 +60,10 @@
 
 参考`TopN.java`和`Product.java`代码
 
+在控制台运行`TopN.java`即可(local模式)。
+
+![运行图](运行.png)
+
 ---
 
 附：欢迎补充
