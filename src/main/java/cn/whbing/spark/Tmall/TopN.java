@@ -39,6 +39,7 @@ public class TopN {
 		//String path = "hdfs://master-1a:9000/whbing/data/result-1-38.json";
 		String path = "D:\\javaTools\\EclipseWork1\\taobaospider\\result\\r21-lingshi.json";
 		//String path = "hdfs://master-1a:9000/whbing/data/r12-shouji.json";
+		
 		Dataset<Product> productDS = spark.read().json(path).as(propductEncoder);
 		
 		//将dataframe注册为临时视图
