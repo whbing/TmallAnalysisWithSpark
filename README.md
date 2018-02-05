@@ -8,7 +8,7 @@
 
 **流程图**
 
-![流程图](流程图.png)
+<img width="50%"  src="流程图.png">
 
 `EChart`文件夹是单独的图表展示分析，在浏览器中打开即可。
 
@@ -26,7 +26,42 @@
 
 # 2. 项目流程
 
-## 2.1 
+## 2.1 新建`maven`项目
+
+```xml
+
+	<groupId>cn.whbing.spark</groupId>
+  	<artifactId>Tmall</artifactId>
+  	<version>0.0.1-SNAPSHOT</version>
+  	<packaging>jar</packaging>
+
+```
+部分pom代码：（spark-core_2.11，spark-sql_2.11是核心，其他部分暂时不需要）
+
+```xml
+
+    <groupId>org.apache.spark</groupId>
+	    <artifactId>spark-core_2.11</artifactId>
+	    <version>2.1.2</version>
+	</dependency>
+     
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-sql_2.11</artifactId>
+      <version>2.1.2</version>
+    </dependency>
+```
+
+## 2.2 核心代码
+
+`cn.whbing.spark.Tmall.pojo`为javabean包
+`cn.whbing.spark.Tmall`为分析包
+
+参考`TopN.java`和`Product.java`代码
+
+---
+
+附：欢迎补充
 
 
 
