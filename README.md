@@ -8,7 +8,7 @@
 
 **流程图**
 
-<center>![流程图](流程图.png)
+<img width="90%"  src="流程图.png">
 
 `EChart`文件夹是单独的图表展示分析，在浏览器中打开即可。
 
@@ -19,10 +19,10 @@
 
 1. 分析结果
 
-<img width="60%" style="margin:0 auto" src="out1.png">
+<img width="60%"  src="out1.png">
 
 2. Echart展示
-<center>![Echart展示](out.png)
+<img width="80%"  src="out.png">
 
 
 
