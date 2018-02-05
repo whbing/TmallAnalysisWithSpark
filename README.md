@@ -19,8 +19,9 @@
 
 1. 分析结果
 ![分析结果](out1.png)
+<div>
 <img width="100%" src="out1.png">
-
+</div>
 2. Echart展示
 ![Echart展示](out.png)
 
