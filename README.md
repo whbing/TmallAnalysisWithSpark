@@ -18,9 +18,8 @@
 **效果展示**
 
 1. 分析结果
-![分析结果](out1.png)
 
-<img width="50%" src="out1.png">
+<img width="60%" src="out1.png">
 
 2. Echart展示
 ![Echart展示](out.png)
