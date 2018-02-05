@@ -30,26 +30,27 @@
 
 ```xml
 
-	<groupId>cn.whbing.spark</groupId>
-  	<artifactId>Tmall</artifactId>
-  	<version>0.0.1-SNAPSHOT</version>
-  	<packaging>jar</packaging>
+<groupId>cn.whbing.spark</groupId>
+<artifactId>Tmall</artifactId>
+<version>0.0.1-SNAPSHOT</version>
+<packaging>jar</packaging>
 
 ```
 部分pom代码：（spark-core_2.11，spark-sql_2.11是核心，其他部分暂时不需要）
 
 ```xml
 
-    <groupId>org.apache.spark</groupId>
-	    <artifactId>spark-core_2.11</artifactId>
-	    <version>2.1.2</version>
-	</dependency>
-     
-    <dependency>
-      <groupId>org.apache.spark</groupId>
-      <artifactId>spark-sql_2.11</artifactId>
-      <version>2.1.2</version>
-    </dependency>
+<groupId>org.apache.spark</groupId>
+    <artifactId>spark-core_2.11</artifactId>
+    <version>2.1.2</version>
+</dependency>
+ 
+<dependency>
+  <groupId>org.apache.spark</groupId>
+  <artifactId>spark-sql_2.11</artifactId>
+  <version>2.1.2</version>
+</dependency>
+
 ```
 
 ## 2.2 核心代码
